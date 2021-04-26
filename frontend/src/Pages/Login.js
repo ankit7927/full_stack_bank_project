@@ -27,9 +27,9 @@ class Login extends React.Component {
     .then((res)=> {
 
       if (res.status == 200) {
-        localStorage.setItem('token', res.headers['jwt-token'])
-        alert (res.data)
-        this.redirectToHome(res.data)
+        localStorage.setItem('token', res.data.token)
+        alert (res.data.username)
+        this.redirectToHome(res.data.username)
       }
 
     })

@@ -24,7 +24,7 @@ router.get("/test", (req, res)=> {
 ////////////////middle were
 const authMiddle = async (req, res, next)=> {
 
-  const token = req.cookies.token || "";
+  const token = req.cookies.token || req.headers.token || "";
   console.log(token)
   try {
     if (!token) {
@@ -133,7 +133,9 @@ router.post("/login", (req, res)=> {
       res.cookie("jwt-token",
         token, {
           httpOnly: true
-        }).send(username)
+        }).send({username:username,
+          token:token
+        })
 
 
     } else {

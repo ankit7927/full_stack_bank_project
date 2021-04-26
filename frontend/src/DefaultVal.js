@@ -1,7 +1,7 @@
 const axiosConfig = {
-  withCredentials: true,
-  header: {
-    "Cookie": localStorage.getItem('token')
+  //withCredentials: true,
+  headers: {
+    token: localStorage.getItem('token')
   }
 
 }
